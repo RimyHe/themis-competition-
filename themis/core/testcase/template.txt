@@ -1,0 +1,46 @@
+# Test Case Generation
+
+Implement an efficient and self-contained `TestGenerator` class to produce diverse test cases for programming competition problems. Focus on constraint coverage and algorithmic stress testing.
+
+## Core Requirements
+```python
+import random
+from typing import List
+
+class TestGenerator:
+    def __init__(
+        self,
+        seed: int = 42,
+        num_base_cases: int = 30,
+        num_corner_cases: int = 10,
+        num_complex_cases: int = 60
+    ):
+        # Initialize problem-specific parameters and RNG
+
+    def generate_base_case(self) -> List[str]:
+        '''Generate num_base_cases typical valid inputs covering common scenarios'''
+
+    def generate_corner_case(self) -> List[str]:
+        '''Produce num_corner_cases edge cases testing constraint boundaries'''
+
+    def generate_complex_case(self) -> List[str]:
+        '''Create num_complex_cases challenging cases for algorithm validation'''
+```
+
+## Important Notes
+- Ensure your code can **efficiently** generate large test cases
+- Implement other helper methods as needed
+- The returned code should only contain the class implementation and have `generate_base_case`, `generate_corner_case`, and `generate_complex_case` methods without any other code
+- Before coding, infer the exact stdin schema from the statement and the reference solution's input-reading code
+- Generated test cases should be raw stdin input, ref to ground truth solution to ensure your code is correct
+- Each returned list element must be one complete raw stdin string for one test case, including all required lines and delimiters. Do not return a list of lines for one test case
+- Match the input format exactly: line counts, blank lines, matrix rows, arrays on one line vs multiple lines, and trailing newline where appropriate
+- Generate only inputs that a correct `ProblemConstraint.validate()` should accept; avoid relying on validation to discard most cases
+- Cover small typical cases, boundary values, and structurally diverse stress cases. Avoid producing only repeated or near-duplicate inputs
+- You only need to generate inputs, not outputs
+
+## Problem Constraints:
+{problem_statement}
+
+## Reference Solution:
+{solution}

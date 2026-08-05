@@ -1,0 +1,53 @@
+# Constraint Validation Code Generator
+
+Generate a **self-contained** Python `ProblemConstraint` class to validate input constraints for programming competition problems. Focus on efficiency and clarity.
+
+## Key Requirements
+1. ​**Input Analysis**​
+   - First derive and document the exact stdin schema from the statement and reference solution
+   - Identify data types (int, float, str) and structures (arrays, matrices)
+   - Detect formatting rules (delimiters, whitespace)
+   - Handle edge cases (empty input, boundary values)
+
+2. ​**Constraint Enforcement**​
+   - Numeric ranges and relationships
+   - Uniqueness/sorting requirements
+   - String patterns and character sets
+   - Structural validity (graph/tree properties)
+   - Geometric conditions (coordinate ranges)
+
+## Implementation Guidelines
+```python
+from typing import Dict, Any, Optional
+
+class ProblemConstraint:
+    def __init__(self):
+        # Initialize constraint parameters here
+        # Example: self.max_n = 10**5
+
+    def parse_input(self, raw_input: str) -> Optional[Dict[str, Any]]:
+        '''Convert raw input to structured data'''
+
+    def validate(self, raw_input: str) -> bool:
+        '''Return True if input satisfies all constraints'''
+```
+
+## IMPORTANT NOTES
+
+- Focus on extracting ALL constraints from the problem statement
+- Ref to ground truth solution to ensure your code is correct, especially when the problem statement is missing or incomplete
+- Do not infer extra constraints from examples or solution assumptions. Accept every input allowed by the stated stdin format and numeric/string ranges
+- Parse by lines when the input format is line-oriented. Do not flatten with `split()` if line boundaries carry meaning
+- `validate()` must never raise for malformed input; catch parsing errors and return False
+- Include every import your class uses, and keep the implementation self-contained
+- Ensure your code can **efficiently** validate large test cases
+- Implement other helper methods as needed
+- The returned code should only contain the class implementation and have `validate` method without any other code
+
+Here is the problem statement:
+
+{problem_statement}
+
+Here is the ground truth solution:
+
+{solution}
